@@ -1,0 +1,197 @@
+import 'package:flutter/material.dart';
+
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Banner
+            Container(
+              width: double.infinity,
+              height: 166,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    spreadRadius: 5,
+                    blurRadius: 8,
+                    offset: Offset(0, 3),
+                  )
+                ],
+              ),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 12),
+                decoration: const BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      const Color(0xFF0101FE),
+                      const Color(0xFF319CE4),
+                    ],
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/bg/les.png",
+                      width: 160,
+                    ),
+                    const SizedBox(width: 10),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Benefit Belajar C++",
+                            style: TextStyle(
+                              fontFamily: 'fontsegeo',
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            "Baca Selengkapnya",
+                            style: TextStyle(
+                              fontFamily: 'fontsegeo',
+                              fontSize: 12,
+                              color: Colors.pink,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 20, 0, 0),
+              child: Text(
+                "Kursus",
+                style: TextStyle(
+                  fontFamily: 'fontsegeo',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+
+            // BOX 1
+            Column(
+              children: [
+                _buildCourseContainer(
+                  "Pemula",
+                  "assets/bg/jadulfix1.png",
+                  "assets/ico/medali.png",
+                ),
+                const SizedBox(height: 10),
+                _buildCourseContainer(
+                  "Menengah",
+                  "assets/bg/tengah.png",
+                  "assets/ico/medali.png",
+                  isReversed: true,
+                ),
+                const SizedBox(height: 10),
+                _buildCourseContainer(
+                  "Pakar",
+                  "assets/bg/modern3.png",
+                  "assets/ico/medali.png",
+                ),
+                const SizedBox(height: 10),
+                _buildCourseContainer(
+                  'Lencana',
+                  null,
+                  'assets/ico/trophy.png',
+                  hasBadge: true,
+                ),
+                const SizedBox(height: 40),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCourseContainer(
+    String title,
+    String imagePath,
+    String iconPath, {
+    bool isReversed = false,
+    bool hasBadge = false,
+  }) {
+    return Row(
+      mainAxisAlignment:
+          isReversed ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: [
+        Container(
+          width: 180,
+          height: 150,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 37,
+                    height: 40,
+                  ),
+                  Image.asset(
+                    iconPath,
+                    width: 30,
+                  ),
+                  Text(
+                    title,
+                    style: TextStyle(fontSize: 18, fontFamily: 'fontsegeo'),
+                  ),
+                ],
+              ),
+              if (imagePath != null) Image.asset(imagePath),
+              if (hasBadge)
+                Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    Text(
+                      'Lencana',
+                      style: TextStyle(
+                        fontFamily: 'fontsegeo',
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Image.asset(iconPath),
+                  ],
+                ),
+            ],
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                spreadRadius: 5,
+                blurRadius: 8,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
