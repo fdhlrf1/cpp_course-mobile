@@ -46,7 +46,7 @@
 <li class="has-line-data" data-line-start="51" data-line-end="53">Pastikan semua dependensi terinstal dengan benar</li>
 </ol>
 <h3 class="code-line" data-line-start=53 data-line-end=54 ><a id="2_Mengkloning_Repositori_53"></a>2. Mengkloning Repositori</h3>
-<pre><code class="has-line-data" data-line-start="56" data-line-end="59" class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/fdhfrfr/cpp_course_mobile.git
+<pre><code class="has-line-data" data-line-start="56" data-line-end="59" class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/fdhlrf.1/cpp_course_mobile.git
 <span class="hljs-built_in">cd</span> cpp_course_mobile
 </code></pre>
 <h3 class="code-line" data-line-start=60 data-line-end=61 ><a id="3_Menginstal_Dependensi_60"></a>3. Menginstal Dependensi</h3>
